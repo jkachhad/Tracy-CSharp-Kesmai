@@ -4,7 +4,7 @@
     "../ext/Tracy"
   ],
   "defines": {
-    "TRACY_API": "__attribute__((visibility(\"default\")))"
+    "TRACY_API": "extern __declspec(dllimport) __attribute__((visibility(\"default\")))"
   },
   "targetPlatforms": {
     "linux": {
