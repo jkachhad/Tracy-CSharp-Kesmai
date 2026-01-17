@@ -39,6 +39,16 @@ jobs:
       - name: "Read C code: extract ${{ matrix.platform.rid }}"
         shell: bash
         run: cd ./bindgen && ./extract.sh
+        
+      - name: "Show extracted files"
+        shell: bash
+        run: |
+          echo "PWD=$(pwd)"
+          ls -la ./bindgen || true
+          ls -la ./bindgen/ast || true
+          ls -la ./ast || true
+          find ./bindgen -maxdepth 4 -type f -print || true
+          find . -maxdepth 3 -type f -name "*.json" -print || true
 
       - name: "Upload C code platform abstract syntax trees"
         uses: actions/upload-artifact@v4
