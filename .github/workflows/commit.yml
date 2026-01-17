@@ -2,14 +2,14 @@ name: "Commit generated C# code"
 
 on:
   workflow_call:
+  workflow_dispatch:
 
 permissions: write-all
 
 jobs:
   commit-job:
     name: "Commit generated C# code"
-    runs-on: ubuntu-20.04
-    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
 
     steps:
       - name: "Clone Git repository"
@@ -26,6 +26,6 @@ jobs:
       - name: "Add + commit + push (if necessary)"
         uses: EndBug/add-and-commit@v7
         with:
-          author_name: "clibequilibrium"
-          author_email: "clibequilibrium@users.noreply.github.com"
+          author_name: "jkachhad"
+          author_email: "jkachhad@users.noreply.github.com"
           message: "Update C# bindings"
