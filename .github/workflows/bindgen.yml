@@ -2,6 +2,7 @@ name: "Bindgen"
 
 on:
   workflow_call:
+  workflow_dispatch:
 
 jobs:
   bindgen-ast-job:
