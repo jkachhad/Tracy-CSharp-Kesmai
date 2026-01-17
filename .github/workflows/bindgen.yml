@@ -17,6 +17,12 @@ jobs:
           - { name: Linux, os: ubuntu-latest, rid: linux }
 
     steps:
+      - name: Install .NET 8.0
+        if: runner.os == 'macOS'
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
       - name: "Clone Git repository"
         uses: actions/checkout@v2
         with:
@@ -46,12 +52,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install .NET 8.0
-        if: runner.os == 'macOS'
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.0.x'
-
       - name: "Clone Git repository"
         uses: actions/checkout@v2
         with:
