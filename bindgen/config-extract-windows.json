@@ -7,7 +7,9 @@
     "TRACY_API": "__attribute__((visibility(\"default\")))"
   },
   "targetPlatforms": {
-    "x86_64-pc-windows-msvc": {},
-    "aarch64-pc-windows-msvc": {}
+    "windows": {
+      "x86_64-pc-windows-msvc": {},
+      "aarch64-pc-windows-msvc": {}
+    }
   }
 }

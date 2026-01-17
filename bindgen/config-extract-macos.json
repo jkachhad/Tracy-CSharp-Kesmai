@@ -7,7 +7,9 @@
     "TRACY_API": "__attribute__((visibility(\"default\")))"
   },
   "targetPlatforms": {
-    "aarch64-apple-darwin": {},
-    "x86_64-apple-darwin": {}
+    "macos": {
+      "aarch64-apple-darwin": {},
+      "x86_64-apple-darwin": {}
+    }
   }
 }
