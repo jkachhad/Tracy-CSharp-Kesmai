@@ -54,7 +54,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: "ast-${{ matrix.platform.rid }}"
-          path: "./bindgen/ast"
+          path: "./bindgen/ffi"
 
   bindgen-cross-platform-ast-job:
     name: "Bindgen AST cross-platform"
@@ -71,19 +71,19 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: "ast-win"
-          path: "./bindgen/ast"
+          path: "./bindgen/ffi"
 
       - name: "Download C code platform abstract syntax trees (osx)"
         uses: actions/download-artifact@v4
         with:
           name: "ast-osx"
-          path: "./bindgen/ast"
+          path: "./bindgen/ffi"
 
       - name: "Download C code platform abstract syntax trees (linux)"
         uses: actions/download-artifact@v4
         with:
           name: "ast-linux"
-          path: "./bindgen/ast"
+          path: "./bindgen/ffi"
 
       - name: "Install c2ffi"
         shell: bash
