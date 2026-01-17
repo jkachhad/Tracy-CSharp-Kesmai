@@ -7,8 +7,13 @@ on:
 permissions: write-all
 
 jobs:
+  run-bindgen:
+    name: "Run Bindgen"
+    uses: "./.github/workflows/bindgen.yml"
+
   commit-job:
     name: "Commit generated C# code"
+    needs: [run-bindgen]
     runs-on: ubuntu-latest
 
     steps:

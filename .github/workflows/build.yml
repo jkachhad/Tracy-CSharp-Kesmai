@@ -12,8 +12,13 @@ on:
       - "**.md"
 
 jobs:
+  run-bindgen:
+    name: "Run Bindgen"
+    uses: "./.github/workflows/bindgen.yml"
+
   native-job:
     name: "Build native libraries: ${{ matrix.platform.rid }}"
+    needs: [run-bindgen]
     runs-on: ${{ matrix.platform.os }}
     strategy:
       fail-fast: false
