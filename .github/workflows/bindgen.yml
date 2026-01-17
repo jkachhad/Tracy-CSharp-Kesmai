@@ -22,9 +22,9 @@ jobs:
         with:
           submodules: "true"
 
-      - name: "Install CAstFfi"
+      - name: "Install c2ffi"
         shell: bash
-        run: dotnet tool install --global bottlenoselabs.CAstFfi.Tool
+        run: dotnet tool install --global bottlenoselabs.c2ffi.Tool
 
       - name: "Read C code: Linux dependencies"
         if: runner.os == 'Linux'
@@ -69,9 +69,9 @@ jobs:
           name: "ast-linux"
           path: "./bindgen/ast"
 
-      - name: "Install CAstFfi"
+      - name: "Install c2ffi"
         shell: bash
-        run: dotnet tool install --global bottlenoselabs.CAstFfi.Tool
+        run: dotnet tool install --global bottlenoselabs.c2ffi.Tool
 
       - name: "Generate cross-platform AST"
         shell: bash
