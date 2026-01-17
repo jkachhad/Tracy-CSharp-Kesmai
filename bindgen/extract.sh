@@ -20,19 +20,19 @@ function get_host_operating_system() {
 OS="$(get_host_operating_system)"
 
 if [[ "$OS" == "windows" ]]; then
-    CASTFFI_CONFIG_FILE_PATH="$DIRECTORY/config-extract-windows.json"
+    C2FFI_CONFIG_FILE_PATH="$DIRECTORY/config-extract-windows.json"
 elif [[ "$OS" == "macos" ]]; then
-    CASTFFI_CONFIG_FILE_PATH="$DIRECTORY/config-extract-macos.json"
+    C2FFI_CONFIG_FILE_PATH="$DIRECTORY/config-extract-macos.json"
 elif [[ "$OS" == "linux" ]]; then
-    CASTFFI_CONFIG_FILE_PATH="$DIRECTORY/config-extract-linux.json"
+    C2FFI_CONFIG_FILE_PATH="$DIRECTORY/config-extract-linux.json"
 else
     echo "Error: Unknown operating system '$OS'" >&2
     exit 1
 fi
 
-if ! [[ -x "$(command -v castffi)" ]]; then
-  echo "Error: 'castffi' is not installed. Please visit https://github.com/bottlenoselabs/CAstFfi for instructions to install the CAstFfi tool." >&2
+if ! [[ -x "$(command -v c2ffi)" ]]; then
+  echo "Error: 'c2ffi' is not installed. Please visit https://github.com/bottlenoselabs/c2ffi for instructions to install the c2ffi tool." >&2
   exit 1
 fi
 
-castffi extract --config "$CASTFFI_CONFIG_FILE_PATH"
+c2ffi extract --config "$C2FFI_CONFIG_FILE_PATH"
