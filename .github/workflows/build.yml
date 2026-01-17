@@ -28,6 +28,12 @@ jobs:
         with:
           submodules: "recursive"
 
+      - name: Install .NET 8.0
+        if: runner.os == 'macOS'
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
       - name: "Install C2CS"
         shell: bash
         run: dotnet tool install --global bottlenoselabs.C2CS.Tool
