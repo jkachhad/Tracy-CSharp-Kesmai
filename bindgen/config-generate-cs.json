@@ -1,5 +1,5 @@
 {
-  "inputFilePath": "./x-ast/ast-cross-platform.json",
+  "inputFilePath": "./x-ffi/ffi-cross-platform.json",
   "outputFileDirectory": "./../src/cs/production/Tracy/Generated",
   "namespaceName": "Tracy",
   "className": "PInvoke",

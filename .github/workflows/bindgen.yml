@@ -50,11 +50,12 @@ jobs:
           find ./bindgen -maxdepth 4 -type f -print || true
           find . -maxdepth 3 -type f -name "*.json" -print || true
 
-      - name: "Upload C code platform abstract syntax trees"
+      - name: "Upload C code platform abstract syntax trees (per-platform)"
         uses: actions/upload-artifact@v4
         with:
-          name: "ast-${{ matrix.platform.rid }}"
-          path: "./bindgen/ffi"
+          name: "ffi-${{ matrix.platform.rid }}"
+          path: "./bindgen/ffi/**"
+          if-no-files-found: error
 
   bindgen-cross-platform-ast-job:
     name: "Bindgen AST cross-platform"
@@ -70,19 +71,19 @@ jobs:
       - name: "Download C code platform abstract syntax trees (win)"
         uses: actions/download-artifact@v4
         with:
-          name: "ast-win"
+          name: "ffi-win"
           path: "./bindgen/ffi"
 
       - name: "Download C code platform abstract syntax trees (osx)"
         uses: actions/download-artifact@v4
         with:
-          name: "ast-osx"
+          name: "ffi-osx"
           path: "./bindgen/ffi"
 
       - name: "Download C code platform abstract syntax trees (linux)"
         uses: actions/download-artifact@v4
         with:
-          name: "ast-linux"
+          name: "ffi-linux"
           path: "./bindgen/ffi"
 
       - name: "Install c2ffi"
@@ -97,7 +98,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: "ast-cross-platform"
-          path: "./bindgen/x-ast/ast-cross-platform.json"
+          path: "./bindgen/x-ffi/ffi-cross-platform.json"
 
   bindgen-cs-job:
     name: "Bindgen C#"
@@ -114,7 +115,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: "ast-cross-platform"
-          path: "./bindgen/x-ast"
+          path: "./bindgen/x-ffi"
 
       - name: "Install C2CS"
         shell: bash
