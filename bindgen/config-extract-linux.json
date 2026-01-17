@@ -3,7 +3,7 @@
   "userIncludeDirectories": [
     "../ext/Tracy"
   ],
-  "platforms": {
+  "targetPlatforms": {
     "x86_64-unknown-linux-gnu": {},
     "aarch64-unknown-linux-gnu": {}
   }
