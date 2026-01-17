@@ -35,4 +35,4 @@ if ! [[ -x "$(command -v c2ffi)" ]]; then
   exit 1
 fi
 
-c2ffi extract "$C2FFI_CONFIG_FILE_PATH"
+c2ffi extract --config "$C2FFI_CONFIG_FILE_PATH"
