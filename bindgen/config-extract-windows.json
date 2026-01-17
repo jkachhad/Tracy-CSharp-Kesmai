@@ -3,9 +3,6 @@
   "userIncludeDirectories": [
     "../ext/Tracy"
   ],
-  "defines": {
-    "TRACY_API": "extern __declspec(dllimport) __attribute__((visibility(\"default\")))"
-  },
   "targetPlatforms": {
     "windows": {
       "x86_64-pc-windows-msvc": {},

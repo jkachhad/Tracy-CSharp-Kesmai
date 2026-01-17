@@ -3,9 +3,6 @@
   "userIncludeDirectories": [
     "../ext/Tracy"
   ],
-  "defines": {
-    "TRACY_API": "extern __declspec(dllimport) __attribute__((visibility(\"default\")))"
-  },
   "targetPlatforms": {
     "macos": {
       "aarch64-apple-darwin": {},
