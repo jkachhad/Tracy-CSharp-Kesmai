@@ -35,4 +35,16 @@ if ! [[ -x "$(command -v c2ffi)" ]]; then
   exit 1
 fi
 
+# Dump the preprocessed translation unit and search for real extern functions.
+clang -E -P -dD \
+  -I../ext/Tracy \
+  ../src/c/production/Tracy/_Tracy.h \
+  > /tmp/tracy_pp.h
+
+echo "=== extern prototypes that look like tracy ==="
+grep -nE "extern .*___tracy_" /tmp/tracy_pp.h | head -n 50 || true
+
+echo "=== tracy macros (these won't become functions for c2ffi) ==="
+grep -nE "^#define Tracy" /tmp/tracy_pp.h | head -n 50 || true
+
 c2ffi extract --config "$C2FFI_CONFIG_FILE_PATH"
