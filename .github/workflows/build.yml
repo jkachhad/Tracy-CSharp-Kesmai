@@ -12,13 +12,8 @@ on:
       - "**.md"
 
 jobs:
-  run-bindgen:
-    name: "Run Bindgen"
-    uses: "./.github/workflows/bindgen.yml"
-
   native-job:
     name: "Build native libraries: ${{ matrix.platform.rid }}"
-    needs: [run-bindgen]
     runs-on: ${{ matrix.platform.os }}
     strategy:
       fail-fast: false
@@ -92,13 +87,6 @@ jobs:
         with:
           name: "native-libraries-linux-x64"
           path: "./lib"
-
-      - name: "Download generated C# code"
-        uses: actions/download-artifact@v4
-        continue-on-error: true
-        with:
-          name: "bindgen-cs"
-          path: "./src/cs/production/Tracy/Generated"
 
       - name: ".NET Build"
         run: dotnet build "./src/cs" --nologo --verbosity minimal --configuration Release -p:PackageVersion="$(date +'%Y.%m.%d')"
