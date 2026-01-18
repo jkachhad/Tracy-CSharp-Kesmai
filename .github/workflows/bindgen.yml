@@ -30,7 +30,7 @@ jobs:
 
       - name: "Install c2ffi"
         shell: bash
-        run: dotnet tool install --global bottlenoselabs.c2ffi.tool --version 2024.4.2
+        run: dotnet tool install --global bottlenoselabs.c2ffi.Tool
 
       - name: "Read C code: Linux dependencies"
         if: runner.os == 'Linux'
